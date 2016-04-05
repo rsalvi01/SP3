@@ -1,4 +1,7 @@
-package ScalaSML
+package cw
+
+import scala.reflect.runtime.universe
+
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  */
@@ -24,22 +27,18 @@ class Translator(fileName: String) {
       val fields = line.split(" ")
       if (fields.length > 0) {
         labels.add(fields(0))
-        fields(1) match {
-          case ADD =>
-            program = program :+ AddInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case LIN =>
-            program = program :+ LinInstruction(fields(0), fields(2).toInt, fields(3).toInt)
-          case MUL =>
-            program = program :+ MulInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case SUB =>
-            program = program :+ SubInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case OUT =>
-            program = program :+ OutInstruction(fields(0), fields(2).toInt)
-          case BNZ =>
-            program = program :+ BnzInstruction(fields(0), fields(2).toInt, fields(3))
-          case x =>
-            println(s"Unknown instruction $x")
+        val className = Class.forName("cw."+fields(1).capitalize+"Instruction")
+        val constructor = className.getConstructors()(0)
+        val args: Array[Object] = new Array[Object](fields.length)
+        for (i <- 0 until fields.length) {
+          if (fields(i).matches("-?[0-9]*")) {
+            args(i) = new Integer(fields(i))
+          } else {
+            args(i) = fields(i)
+          }
         }
+
+        program = program :+ constructor.newInstance(args:_*).asInstanceOf[Instruction]
       }
     }
     new Machine(labels, program)
