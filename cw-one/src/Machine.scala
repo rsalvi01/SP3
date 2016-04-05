@@ -1,4 +1,4 @@
-package ScalaSML
+package SP3
 
 /** The machine language interpreter*/
 

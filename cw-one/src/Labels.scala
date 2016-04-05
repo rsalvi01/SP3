@@ -1,4 +1,4 @@
-package ScalaSML
+package SP3
 
 /** An instance contains a list of Strings, called "labels",
     in the order in which they were added to the list.*/

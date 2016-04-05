@@ -1,6 +1,6 @@
-package ScalaSML
+package SP3
 
-class MulInstruction (label: String, op: String, val result: Int, val op1: Int, val op2: Int)
+case class MulInstruction (label: String, op: String, val result: Int, val op1: Int, val op2: Int)
   extends Instruction(label, op) {
 
   override def execute(m: Machine) {

@@ -1,9 +1,6 @@
-package ScalaSML
+package SP3
 
-/**
-  * Created by MarAzul on 20/02/2016.
-  */
-class SubInstruction (label: String, op: String, val result: Int, val op1: Int, val op2: Int)
+case class SubInstruction (label: String, op: String, val result: Int, val op1: Int, val op2: Int)
     extends Instruction(label, op) {
 
     override def execute(m: Machine) {

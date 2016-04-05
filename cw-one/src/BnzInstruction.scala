@@ -1,4 +1,4 @@
-package ScalaSML
+package SP3
 
 case class BnzInstruction(label: String, op: String, val register: Int, val target: String) extends Instruction(label, op) {
 

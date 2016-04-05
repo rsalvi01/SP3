@@ -1,6 +1,6 @@
-package ScalaSML
+package SP3
 
-class OutInstruction(label: String, opcode: String, register: Int)
+case class OutInstruction(label: String, opcode: String, register: Int)
   extends Instruction(label, opcode) {
 
   override def execute(m: Machine): Unit = {

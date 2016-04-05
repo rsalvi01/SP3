@@ -1,4 +1,5 @@
-package ScalaSML
+package SP3
+
 /**
   * An instance contains 32 registers and methods to access and change them
   * @author someone

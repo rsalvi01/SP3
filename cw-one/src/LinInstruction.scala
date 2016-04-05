@@ -1,10 +1,5 @@
-package ScalaSML
+package SP3
 
-/**
-  * This class ....
-  *
-  * @author someone
-  */
 case class LinInstruction(label: String, opcode: String, register: Int, value: Int) extends Instruction(label, opcode){
 
   override def execute(m: Machine) =

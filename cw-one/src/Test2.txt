@@ -1,5 +1,7 @@
 f0 lin 01 3
 f1 lin 02 20
+f1 lin 02 20
+
 f2 mul 03 01 02
 f3 mul 03 03 01
 f4 out 03

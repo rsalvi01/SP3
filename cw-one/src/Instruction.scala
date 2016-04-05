@@ -1,4 +1,4 @@
-package ScalaSML
+package SP3
 
 /**
   * This class is the supertype for machine instructions
